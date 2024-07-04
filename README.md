@@ -1,0 +1,1 @@
+# aidsistant-smartquery.js
