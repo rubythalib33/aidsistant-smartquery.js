@@ -143,18 +143,19 @@
       messageElement.style.padding = '10px';
       messageElement.style.borderRadius = '5px';
       messageElement.style.wordWrap = 'break-word';
+      messageElement.style.whiteSpace = 'pre-wrap'; // Ensure whitespace and line breaks are preserved
 
       if (sender === 'user') {
-        messageElement.style.backgroundColor = '#1e90ff';
-        messageElement.style.color = '#fff';
+        messageElement.style.backgroundColor = this.uiColor;
+        messageElement.style.color = '#000';
         messageElement.style.alignSelf = 'flex-end';
       } else {
-        messageElement.style.backgroundColor = '#f1f1f1';
+        messageElement.style.backgroundColor = '#d3d3d3';
         messageElement.style.color = '#000';
         messageElement.style.alignSelf = 'flex-start';
       }
 
-      messageElement.innerHTML = message;
+      messageElement.innerHTML = message.replace(/\n/g, '<br>'); // Replace newline characters with <br> tags
       chatContent.appendChild(messageElement);
       chatContent.scrollTop = chatContent.scrollHeight;
     }
